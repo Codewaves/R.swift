@@ -38,8 +38,8 @@ extension ColorResource {
      - returns: A color that exactly or best matches the desired traits with the given resource (`R.color.*`), or nil if no suitable color was found.
      */
     //    @available(*, deprecated, message: "Use UIColor(resource:) initializer instead")
-    public func callAsFunction(compatibleWith traitCollection: UITraitCollection? = nil) -> UIColor? {
-        UIColor(named: name, in: bundle, compatibleWith: traitCollection)
+    public func callAsFunction(compatibleWith traitCollection: UITraitCollection? = nil, withDefault default: UIColor = .clear) -> UIColor {
+        UIColor(named: name, in: bundle, compatibleWith: traitCollection) ?? `default`
     }
 }
 
